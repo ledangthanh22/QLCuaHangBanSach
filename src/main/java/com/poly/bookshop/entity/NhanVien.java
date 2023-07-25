@@ -1,6 +1,6 @@
 package com.poly.bookshop.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -11,13 +11,13 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 @Setter
@@ -25,7 +25,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Nhan_Vien",uniqueConstraints = {@UniqueConstraint(columnNames = "chuc_vu_id")})
+@Table(name = "Nhan_Vien")
 public class NhanVien {
 
     @Id
@@ -35,7 +35,7 @@ public class NhanVien {
     @Column(name = "ten_nhan_vien")
     private String tenNhanVien;
 
-    @Column(name = "goi_tinh")
+    @Column(name = "gioi_tinh")
     private Boolean gioiTinh;
 
     @Column(name = "ngay_sinh")
@@ -62,11 +62,10 @@ public class NhanVien {
     @Column(name = "ngay_sua")
     private Date ngaySua;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "nhanVien")
-    private List<NhanVien> nhanViens;
+    @OneToMany(mappedBy = "nhanVien",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    private List<HoaDon> hoaDons = new ArrayList<>();
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "chuc_vu_id",referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JoinColumn(name = "chuc_vu_id")
     private ChucVu chucVu;
 }

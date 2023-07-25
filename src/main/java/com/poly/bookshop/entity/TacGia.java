@@ -23,33 +23,18 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Khach_Hang")
-public class KhachHang {
+@Table(name = "Tac_Gia")
+public class TacGia {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "ten_khach_hang")
-    private String tenKhachHang;
+    @Column(name = "ten_tac_gia")
+    private String tenTacGia;
 
-    @Column(name = "goi_tinh")
-    private Boolean gioiTinh;
-
-    @Column(name = "ngay_sinh")
-    private Date ngaySinh;
-
-    @Column(name = "so_dien_thoai")
-    private String soDienThoai;
-
-    @Column(name = "email")
-    private String email;
-
-    @Column(name = "dia_chi")
-    private String diaChi;
-
-    @Column(name = "mat_khau")
-    private String matKhau;
+    @Column(name = "mo_ta")
+    private String moTa;
 
     @Column(name = "ngay_tao")
     private Date ngayTao;
@@ -57,6 +42,6 @@ public class KhachHang {
     @Column(name = "ngay_sua")
     private Date ngaySua;
 
-    @OneToMany(mappedBy = "khachHang",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    private List<HoaDon> hoaDons = new ArrayList<>();
+    @OneToMany(mappedBy = "tacGia",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    private List<Sach> saches = new ArrayList<>();
 }

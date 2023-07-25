@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <table border="1">
+      <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Ngay tao</th>
+          <th>Ngay sua</th>
+      </tr>
+      <tr th:each="sv:${listCV}" >
+          <td th:text="${sv.id}"></th>
+          <td th:text="${sv.tenChucVu}"></td>
+          <td th:text="${sv.ngayTao}"></th>
+          <td th:text="${sv.ngaySua}"></td>
+      </tr>
+  </table>
+</body>
+</html>

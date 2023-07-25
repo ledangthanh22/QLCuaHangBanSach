@@ -1,8 +1,9 @@
 package com.poly.bookshop.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -12,8 +13,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import java.sql.Date;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Setter
@@ -29,15 +32,15 @@ public class ChucVu {
     private Long id;
 
     @Column(name = "ten_chuc_vu")
-    private String tenKichThuoc;
+    private String tenChucVu;
 
     @Column(name = "ngay_tao")
     private Date ngayTao;
 
     @Column(name = "ngay_sua")
-    private Long ngaySua;
+    private Date ngaySua;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "chucVu")
-    private List<ChucVu>  chucVus;
+    @OneToMany(mappedBy = "chucVu",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    private List<NhanVien> nhanViens = new ArrayList<>();
+
 }

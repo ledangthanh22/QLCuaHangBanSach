@@ -1,5 +1,6 @@
 package com.poly.bookshop.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -8,21 +9,23 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Sach",uniqueConstraints = {@UniqueConstraint(columnNames = {"loai_sach_id","loai_bia_id","nxb_id","kich_thuoc_id"})})
+@Table(name = "Sach")
 public class Sach {
 
     @Id
@@ -62,21 +65,27 @@ public class Sach {
     @Column(name = "ngay_sua")
     private Date ngaySua;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "kich_thuoc_id",referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JoinColumn(name = "kich_thuoc_id")
     private KichThuoc kichThuoc;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "loai_sach_id",referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JoinColumn(name = "loai_sach_id")
     private LoaiSach loaiSach;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "loai_bia_id",referencedColumnName = "id")
-    private LoaiBia loaiBia;
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JoinColumn(name = "loai_bia_id")
+    private BiaSach loaiBia;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "nxb_id",referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JoinColumn(name = "nxb_id")
     private NhaXuatBan nhaXuatBan;
 
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JoinColumn(name = "tac_gia_id")
+    private TacGia tacGia;
+
+    @OneToMany(mappedBy = "sach",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    private List<HoaDonCT> hoaDonCTs = new ArrayList<>();
 
 }
