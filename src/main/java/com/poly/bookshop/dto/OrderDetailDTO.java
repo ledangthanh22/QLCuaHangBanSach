@@ -10,7 +10,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class OderDetailDTO {
+public class OrderDetailDTO {
 
     private String bookName;
 

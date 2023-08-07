@@ -1,4 +1,4 @@
-package com.poly.bookshop.controller;
+package com.poly.bookshop.rest;
 
 import com.poly.bookshop.entity.BookCover;
 import com.poly.bookshop.service.BookCoverService;

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class StaffServiceImpl implements StaffService {
@@ -31,7 +32,8 @@ public class StaffServiceImpl implements StaffService {
 
     @Override
     public Staff getOne(Long id) {
-        return staffRepository.findById(id).orElseThrow(()-> new RuntimeException("Khong tim thay id nay!"));
+        Optional<Staff> result = staffRepository.findById(id);
+        return result.isPresent() ? result.get() : null ;
     }
 
     @Override

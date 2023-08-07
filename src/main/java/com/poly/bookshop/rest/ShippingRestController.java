@@ -1,4 +1,4 @@
-package com.poly.bookshop.controller;
+package com.poly.bookshop.rest;
 
 
 import com.poly.bookshop.entity.Shipping;
@@ -19,7 +19,7 @@ import java.util.List;
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/admin/shipping")
-public class ShippingController {
+public class ShippingRestController {
 
     @Autowired
     private ShippingService shippingService;

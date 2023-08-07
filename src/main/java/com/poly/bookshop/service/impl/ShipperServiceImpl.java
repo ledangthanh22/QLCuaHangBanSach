@@ -15,13 +15,13 @@ public class ShipperServiceImpl implements ShipperService {
     private ShipperRepository shipperRepository;
 
     @Override
-    public Shipper save(Shipper shippeer) {
-        return shipperRepository.save(shippeer);
+    public Shipper save(Shipper shipper) {
+        return shipperRepository.save(shipper);
     }
 
     @Override
-    public Shipper update(Shipper shippeer) {
-        return shipperRepository.save(shippeer);
+    public Shipper update(Shipper shipper) {
+        return shipperRepository.save(shipper);
     }
 
     @Override

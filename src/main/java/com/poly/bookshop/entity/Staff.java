@@ -61,11 +61,11 @@ public class Staff {
     @Column(name = "ngay_sua")
     private Date updateAt;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "nhanVien")
-    private List<Oder> oders = new ArrayList<>();
-
     @ManyToOne()
     @JoinColumn(name = "chuc_vu_id")
     private Position position;
+
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "staff")
+//    private List<Order> orders = new ArrayList<>();
 }

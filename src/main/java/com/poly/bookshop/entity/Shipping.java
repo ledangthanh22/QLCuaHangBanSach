@@ -15,7 +15,6 @@ import lombok.Setter;
 
 import java.sql.Date;
 import java.util.ArrayList;
-import java.util.List;
 
 
 @Setter
@@ -45,7 +44,7 @@ public class Shipping {
     @Column(name = "ngay_sua")
     private Date updateAt;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "vanChuyen")
-    private List<Oder> oders = new ArrayList<>();
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "shipping")
+//    private List<Order> orders = new ArrayList<>();
 }

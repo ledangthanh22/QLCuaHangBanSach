@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 @Setter
@@ -25,7 +25,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "Hoa_Don")
-public class Oder {
+public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -53,13 +53,16 @@ public class Oder {
     private String status;
 
     @Column(name = "ngay_tao")
-    private Date OderDate;
+    private Date orderDate;
 
     @Column(name = "ngay_giao")
     private Date deliveryDate;
 
     @Column(name = "ngay_nhan")
     private Date receivedDate;
+
+    @Column(name = "mo_ta")
+    private String describe ;
 
     @ManyToOne()
     @JoinColumn(name = "khach_hang_id")
@@ -81,7 +84,7 @@ public class Oder {
     @JoinColumn(name = "nguoi_giao_id")
     private Shipper shipper;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "hoaDon")
-    private List<OderDetail> oderDetails = new ArrayList<>();
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "order")
+//    private List<OrderDetail> orderDetails = new ArrayList<>();
 }

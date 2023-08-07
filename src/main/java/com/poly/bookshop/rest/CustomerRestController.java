@@ -1,5 +1,4 @@
-package com.poly.bookshop.controller;
-
+package com.poly.bookshop.rest;
 
 import com.poly.bookshop.entity.Customer;
 import com.poly.bookshop.service.CustomerService;
@@ -19,7 +18,7 @@ import java.util.List;
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/admin/customer")
-public class CustomerController {
+public class CustomerRestController {
 
     @Autowired
     private CustomerService customerService;

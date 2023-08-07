@@ -41,7 +41,7 @@ public class Payment {
     @Column(name = "ngay_sua")
     private Date updateAt;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "thanhToan")
-    private List<Oder> oders = new ArrayList<>();
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "payment")
+//    private List<Order> orders = new ArrayList<>();
 }

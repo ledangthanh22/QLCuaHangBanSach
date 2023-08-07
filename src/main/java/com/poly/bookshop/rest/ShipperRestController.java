@@ -1,4 +1,4 @@
-package com.poly.bookshop.controller;
+package com.poly.bookshop.rest;
 
 
 import com.poly.bookshop.entity.Shipper;
@@ -19,7 +19,7 @@ import java.util.List;
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/admin/shipper")
-public class ShipperController {
+public class ShipperRestController {
 
     @Autowired
     private ShipperService shipperService;

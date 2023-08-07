@@ -1,4 +1,4 @@
-package com.poly.bookshop.controller;
+package com.poly.bookshop.rest;
 
 
 
@@ -20,7 +20,7 @@ import java.util.List;
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/admin/publishing")
-public class PublishingController {
+public class PublishingRestController {
 
     @Autowired
     private PublishingService publishingService;

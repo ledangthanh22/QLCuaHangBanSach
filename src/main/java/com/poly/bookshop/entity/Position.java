@@ -38,9 +38,8 @@ public class Position {
     @Column(name = "ngay_sua")
     private Date updateAt;
 
-
     @JsonIgnore
-    @OneToMany(mappedBy = "chucVu")
+    @OneToMany(mappedBy = "position")
     private List<Staff> staff = new ArrayList<>();
 
 }

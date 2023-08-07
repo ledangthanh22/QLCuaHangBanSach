@@ -41,7 +41,7 @@ public class Shipper {
     @Column(name = "ngay_sua")
     private Date updateAt;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "nguoiGiaoHang")
-    private List<Oder> oders = new ArrayList<>();
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "shipper")
+//    private List<Order> orders = new ArrayList<>();
 }

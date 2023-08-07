@@ -1,8 +1,10 @@
-package com.poly.bookshop.controller;
+package com.poly.bookshop.rest;
 
 import com.poly.bookshop.entity.Staff;
 import com.poly.bookshop.service.StaffService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,33 +20,34 @@ import java.util.List;
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/admin/staff")
-public class StaffController {
+public class StaffRestController {
 
     @Autowired
     private StaffService staffService;
 
     @GetMapping()
-    public  List<Staff> getStaffs(){
-        return staffService.getAll();
+    public ResponseEntity<List<Staff>> getStaffs(){
+        return new ResponseEntity<>(staffService.getAll(), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public Staff getStaffs(@PathVariable("id") String id){
-        return staffService.getOne(Long.parseLong(id));
+    public ResponseEntity<Staff> getStaffs(@PathVariable("id") String id){
+        return new ResponseEntity<>(staffService.getOne(Long.parseLong(id)),HttpStatus.OK);
     }
 
     @PostMapping()
-    public Staff addStaff(@RequestBody Staff staff){
-        return staffService.save(staff);
+    public ResponseEntity<Staff> createStaff(@RequestBody Staff staff){
+        return new ResponseEntity<>(staff,HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
-    public Staff updateStaff(@PathVariable("id") String id, @RequestBody Staff staff){
-        return staffService.update(staff);
+    public ResponseEntity<Staff> updateStaff(@PathVariable("id") String id, @RequestBody Staff staff){
+        return new ResponseEntity<>(staffService.update(staff),HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteStaff(@PathVariable("id") String id){
+    public ResponseEntity<Void> deleteStaff(@PathVariable("id") String id){
         staffService.delete(Long.parseLong(id));
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

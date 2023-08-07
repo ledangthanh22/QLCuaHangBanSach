@@ -1,8 +1,8 @@
-package com.poly.bookshop.controller;
+package com.poly.bookshop.rest;
 
 
-import com.poly.bookshop.entity.Category;
-import com.poly.bookshop.service.CategoryService;
+import com.poly.bookshop.entity.Payment;
+import com.poly.bookshop.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,34 +18,34 @@ import java.util.List;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/admin/category")
-public class CategoryController {
+@RequestMapping("/admin/payment")
+public class PaymentRestController {
 
     @Autowired
-    private CategoryService categoryService;
+    private PaymentService paymentService;
 
     @GetMapping()
-    public List<Category> getBookCategories() {
-        return categoryService.getAll();
+    public List<Payment> getPaymentMethods() {
+        return paymentService.getAll();
     }
 
     @GetMapping("/{id}")
-    public Category getBookCategory(@PathVariable("id") String id) {
-        return categoryService.getOne(Long.parseLong(id));
+    public Payment getPaymentMethod(@PathVariable("id") String id) {
+        return paymentService.getOne(Long.parseLong(id));
     }
 
     @PostMapping()
-    public Category addBookCategory(@RequestBody Category bookCategory) {
-        return categoryService.save(bookCategory);
+    public Payment addPaymentMethod(@RequestBody Payment paymentMethod) {
+        return paymentService.save(paymentMethod);
     }
 
     @PutMapping("/{id}")
-    public Category updateBookCategory(@RequestBody Category bookCategory) {
-        return categoryService.update(bookCategory);
+    public Payment updatePaymentMethod(@RequestBody Payment paymentMethod) {
+        return paymentService.update(paymentMethod);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteBookCategory(@PathVariable("id") String id) {
-        categoryService.delete(Long.parseLong(id));
+    public void deletePaymentMethod(@PathVariable("id") String id) {
+        paymentService.delete(Long.parseLong(id));
     }
 }

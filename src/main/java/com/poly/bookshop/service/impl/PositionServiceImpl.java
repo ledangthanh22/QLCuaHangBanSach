@@ -1,6 +1,5 @@
 package com.poly.bookshop.service.impl;
 
-import com.poly.bookshop.dto.PositionDTO;
 import com.poly.bookshop.entity.Position;
 import com.poly.bookshop.repository.PositionRepository;
 import com.poly.bookshop.service.PositionService;

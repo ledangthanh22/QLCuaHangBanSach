@@ -1,10 +1,5 @@
 package com.poly.bookshop.dto;
 
-import com.poly.bookshop.entity.Customer;
-import com.poly.bookshop.entity.Payment;
-import com.poly.bookshop.entity.Shipper;
-import com.poly.bookshop.entity.Shipping;
-import com.poly.bookshop.entity.Staff;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,7 +13,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class OderDTO {
+public class OrderDTO {
 
     private Long oderCode;
 

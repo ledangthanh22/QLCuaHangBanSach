@@ -38,7 +38,7 @@ public class Size {
     @Column(name = "ngay_sua")
     private Date updateAt;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "kichThuoc")
-    private List<Book> books = new ArrayList<>();
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "size")
+//    private List<Book> books = new ArrayList<>();
 }

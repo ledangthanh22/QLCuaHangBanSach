@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface ShipperService {
 
-    Shipper save(Shipper shippeer);
+    Shipper save(Shipper shipper);
 
-    Shipper update(Shipper shippeer);
+    Shipper update(Shipper shipper);
 
     void delete(Long id);
 

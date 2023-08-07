@@ -1,6 +1,5 @@
 package com.poly.bookshop.dto;
 
-import com.poly.bookshop.entity.Position;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

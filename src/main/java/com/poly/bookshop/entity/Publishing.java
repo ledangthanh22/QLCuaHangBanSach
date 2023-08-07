@@ -32,13 +32,22 @@ public class Publishing {
     @Column(name = "ten_nxb")
     private String name;
 
+    @Column(name = "so_dien_thoai")
+    private String phone;
+
+    @Column(name = "email")
+    private String email;
+
+    @Column(name = "dia_chi")
+    private String address;
+
     @Column(name = "ngay_tao")
     private Date createAt;
 
     @Column(name = "ngay_sua")
     private Date updateAt;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "nhaXuatBan")
-    private List<Book> books = new ArrayList<>();
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "publishing")
+//    private List<Book> books = new ArrayList<>();
 }

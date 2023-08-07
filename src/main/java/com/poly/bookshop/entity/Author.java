@@ -41,7 +41,7 @@ public class Author {
     @Column(name = "ngay_sua")
     private Date updateAt;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "tacGia")
-    private List<Book> books = new ArrayList<>();
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "author")
+//    private List<Book> books = new ArrayList<>();
 }

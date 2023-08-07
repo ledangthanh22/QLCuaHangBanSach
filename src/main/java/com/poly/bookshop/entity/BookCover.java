@@ -1,5 +1,6 @@
 package com.poly.bookshop.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -40,6 +41,7 @@ public class BookCover {
     @Column(name = "ngay_sua")
     private Date updateAt;
 
-    @OneToMany(mappedBy = "biaSach")
-    private List<Book> books = new ArrayList<>();
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "bookCover")
+//    private List<Book> books = new ArrayList<>();
 }

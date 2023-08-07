@@ -20,7 +20,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 @Table(name = "Hoa_Don_Chi_Tiet")
-public class OderDetail {
+public class OrderDetail {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,13 +38,12 @@ public class OderDetail {
     @Column(name = "giam_gia")
     private Double reducedPrice;
 
-
     @ManyToOne()
     @JoinColumn(name = "sach_id")
     private Book book;
 
     @ManyToOne()
     @JoinColumn(name = "hoa_don_id")
-    private Oder oder;
+    private Order order;
 
 }

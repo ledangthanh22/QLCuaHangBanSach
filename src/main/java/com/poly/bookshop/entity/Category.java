@@ -41,7 +41,7 @@ public class Category {
     @Column(name = "ngay_sua")
     private Date updateAt;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "loaiSach")
-    private List<Book> books = new ArrayList<>();
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "category")
+//    private List<Book> books = new ArrayList<>();
 }

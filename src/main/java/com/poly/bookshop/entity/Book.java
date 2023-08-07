@@ -41,7 +41,7 @@ public class Book {
     private Double price;
 
     @Column(name = "gia_giam")
-    private Double giaGiam;
+    private Double reducedPrice;
 
     @Column(name = "nam_xuat_ban")
     private Integer year;
@@ -84,8 +84,8 @@ public class Book {
     @JoinColumn(name = "tac_gia_id")
     private Author author;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "sach")
-    private List<OderDetail> oderDetails = new ArrayList<>();
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "book")
+//    private List<OrderDetail> orderDetails = new ArrayList<>();
 
 }

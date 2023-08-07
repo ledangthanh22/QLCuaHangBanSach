@@ -1,10 +1,5 @@
 package com.poly.bookshop.dto;
 
-import com.poly.bookshop.entity.Author;
-import com.poly.bookshop.entity.BookCover;
-import com.poly.bookshop.entity.Category;
-import com.poly.bookshop.entity.Publishing;
-import com.poly.bookshop.entity.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
