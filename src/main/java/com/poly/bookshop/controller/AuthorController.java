@@ -1,7 +1,7 @@
-package com.poly.bookshop.rest;
+package com.poly.bookshop.controller;
 
-import com.poly.bookshop.entity.Size;
-import com.poly.bookshop.service.SizeService;
+import com.poly.bookshop.entity.Author;
+import com.poly.bookshop.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -17,34 +17,34 @@ import java.util.List;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/admin/size")
-public class SizeRestController {
+@RequestMapping("/api/author")
+public class AuthorController {
 
     @Autowired
-    private SizeService sizeService;
+    private AuthorService authorService;
 
     @GetMapping()
-    public List<Size> getSizes() {
-        return sizeService.getAll();
+    public List<Author> getAuthors() {
+        return authorService.getAll();
     }
 
     @GetMapping("/{id}")
-    public Size getSize(@PathVariable("id") String id) {
-        return sizeService.getOne(Long.parseLong(id));
+    public Author getAuthor(@PathVariable("id") String id) {
+        return authorService.getOne(Long.parseLong(id));
     }
 
     @PostMapping()
-    public Size addSize(@RequestBody Size size) {
-        return sizeService.save(size);
+    public Author addAuthor(@RequestBody Author author) {
+        return authorService.save(author);
     }
 
     @PutMapping("/{id}")
-    public Size updateSize(@RequestBody Size size) {
-        return sizeService.update(size);
+    public Author updateAuthor(@RequestBody Author author) {
+        return authorService.update(author);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteSize(@PathVariable("id") String id) {
-        sizeService.delete(Long.parseLong(id));
+    public void deleteAuthor(@PathVariable("id") String id) {
+        authorService.delete(Long.parseLong(id));
     }
 }

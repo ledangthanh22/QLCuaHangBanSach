@@ -1,4 +1,4 @@
-package com.poly.bookshop.rest;
+package com.poly.bookshop.controller;
 
 import com.poly.bookshop.entity.BookCover;
 import com.poly.bookshop.service.BookCoverService;
@@ -17,7 +17,7 @@ import java.util.List;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/admin/book-cover")
+@RequestMapping("/api/book-cover")
 public class BookCoverController {
 
     @Autowired

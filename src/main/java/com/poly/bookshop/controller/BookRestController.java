@@ -1,4 +1,4 @@
-package com.poly.bookshop.rest;
+package com.poly.bookshop.controller;
 
 
 import com.poly.bookshop.entity.Book;
@@ -18,7 +18,7 @@ import java.util.List;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/admin/book")
+@RequestMapping("/api/book")
 public class BookRestController {
 
     @Autowired

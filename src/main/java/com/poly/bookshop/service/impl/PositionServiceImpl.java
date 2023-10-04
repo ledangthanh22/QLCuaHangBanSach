@@ -1,8 +1,10 @@
 package com.poly.bookshop.service.impl;
 
+import com.poly.bookshop.dto.PositionDTO;
 import com.poly.bookshop.entity.Position;
 import com.poly.bookshop.repository.PositionRepository;
 import com.poly.bookshop.service.PositionService;
+import org.hibernate.engine.internal.Collections;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,4 +40,6 @@ public class PositionServiceImpl implements PositionService {
     public List<Position> getAll() {
         return positionRepository.findAll();
     }
+
+
 }

@@ -1,8 +1,7 @@
-package com.poly.bookshop.rest;
+package com.poly.bookshop.controller;
 
-
-import com.poly.bookshop.entity.Payment;
-import com.poly.bookshop.service.PaymentService;
+import com.poly.bookshop.entity.Size;
+import com.poly.bookshop.service.SizeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,34 +17,34 @@ import java.util.List;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/admin/payment")
-public class PaymentRestController {
+@RequestMapping("/api/size")
+public class SizeController {
 
     @Autowired
-    private PaymentService paymentService;
+    private SizeService sizeService;
 
     @GetMapping()
-    public List<Payment> getPaymentMethods() {
-        return paymentService.getAll();
+    public List<Size> getSizes() {
+        return sizeService.getAll();
     }
 
     @GetMapping("/{id}")
-    public Payment getPaymentMethod(@PathVariable("id") String id) {
-        return paymentService.getOne(Long.parseLong(id));
+    public Size getSize(@PathVariable("id") String id) {
+        return sizeService.getOne(Long.parseLong(id));
     }
 
     @PostMapping()
-    public Payment addPaymentMethod(@RequestBody Payment paymentMethod) {
-        return paymentService.save(paymentMethod);
+    public Size addSize(@RequestBody Size size) {
+        return sizeService.save(size);
     }
 
     @PutMapping("/{id}")
-    public Payment updatePaymentMethod(@RequestBody Payment paymentMethod) {
-        return paymentService.update(paymentMethod);
+    public Size updateSize(@RequestBody Size size) {
+        return sizeService.update(size);
     }
 
     @DeleteMapping("/{id}")
-    public void deletePaymentMethod(@PathVariable("id") String id) {
-        paymentService.delete(Long.parseLong(id));
+    public void deleteSize(@PathVariable("id") String id) {
+        sizeService.delete(Long.parseLong(id));
     }
 }

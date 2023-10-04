@@ -1,4 +1,4 @@
-package com.poly.bookshop.rest;
+package com.poly.bookshop.controller;
 
 import com.poly.bookshop.entity.Staff;
 import com.poly.bookshop.service.StaffService;
@@ -19,8 +19,8 @@ import java.util.List;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/admin/staff")
-public class StaffRestController {
+@RequestMapping("/api/staff")
+public class StaffController {
 
     @Autowired
     private StaffService staffService;

@@ -42,6 +42,6 @@ public class Category {
     private Date updateAt;
 
 //    @JsonIgnore
-//    @OneToMany(mappedBy = "category")
-//    private List<Book> books = new ArrayList<>();
+    @OneToMany(mappedBy = "category")
+    private List<Book> books = new ArrayList<>();
 }

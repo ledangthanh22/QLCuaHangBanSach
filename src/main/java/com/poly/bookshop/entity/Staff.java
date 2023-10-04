@@ -14,6 +14,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.sql.Date;
 import java.util.ArrayList;
@@ -56,9 +58,11 @@ public class Staff {
     private Boolean status;
 
     @Column(name = "ngay_tao")
+    @CreationTimestamp
     private Date createAt;
 
     @Column(name = "ngay_sua")
+    @UpdateTimestamp
     private Date updateAt;
 
     @ManyToOne()

@@ -9,11 +9,16 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +26,7 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Entity
 @Table(name = "Chuc_Vu")
 public class Position {
@@ -33,10 +39,12 @@ public class Position {
     private String name;
 
     @Column(name = "ngay_tao")
-    private Date createAt;
+    @CreationTimestamp
+    private LocalDate createAt;
 
     @Column(name = "ngay_sua")
-    private Date updateAt;
+    @UpdateTimestamp
+    private LocalDate updateAt;
 
     @JsonIgnore
     @OneToMany(mappedBy = "position")

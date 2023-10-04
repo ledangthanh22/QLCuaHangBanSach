@@ -1,7 +1,8 @@
-package com.poly.bookshop.rest;
+package com.poly.bookshop.controller;
 
-import com.poly.bookshop.entity.Author;
-import com.poly.bookshop.service.AuthorService;
+
+import com.poly.bookshop.entity.Category;
+import com.poly.bookshop.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -17,34 +18,34 @@ import java.util.List;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/admin/author")
-public class AuthorRestController {
+@RequestMapping("/api/category")
+public class CategoryController {
 
     @Autowired
-    private AuthorService authorService;
+    private CategoryService categoryService;
 
     @GetMapping()
-    public List<Author> getAuthors() {
-        return authorService.getAll();
+    public List<Category> getBookCategories() {
+        return categoryService.getAll();
     }
 
     @GetMapping("/{id}")
-    public Author getAuthor(@PathVariable("id") String id) {
-        return authorService.getOne(Long.parseLong(id));
+    public Category getBookCategory(@PathVariable("id") String id) {
+        return categoryService.getOne(Long.parseLong(id));
     }
 
     @PostMapping()
-    public Author addAuthor(@RequestBody Author author) {
-        return authorService.save(author);
+    public Category addBookCategory(@RequestBody Category bookCategory) {
+        return categoryService.save(bookCategory);
     }
 
     @PutMapping("/{id}")
-    public Author updateAuthor(@RequestBody Author author) {
-        return authorService.update(author);
+    public Category updateBookCategory(@RequestBody Category bookCategory) {
+        return categoryService.update(bookCategory);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteAuthor(@PathVariable("id") String id) {
-        authorService.delete(Long.parseLong(id));
+    public void deleteBookCategory(@PathVariable("id") String id) {
+        categoryService.delete(Long.parseLong(id));
     }
 }

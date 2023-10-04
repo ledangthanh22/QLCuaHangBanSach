@@ -1,8 +1,8 @@
-package com.poly.bookshop.rest;
+package com.poly.bookshop.controller;
 
 
-import com.poly.bookshop.entity.Shipper;
-import com.poly.bookshop.service.ShipperService;
+import com.poly.bookshop.entity.Payment;
+import com.poly.bookshop.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,34 +18,34 @@ import java.util.List;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/admin/shipper")
-public class ShipperRestController {
+@RequestMapping("/api/payment")
+public class PaymentController {
 
     @Autowired
-    private ShipperService shipperService;
+    private PaymentService paymentService;
 
     @GetMapping()
-    public List<Shipper> getShippers() {
-        return shipperService.getAll();
+    public List<Payment> getPaymentMethods() {
+        return paymentService.getAll();
     }
 
     @GetMapping("/{id}")
-    public Shipper getShipper(@PathVariable("id") String id) {
-        return shipperService.getOne(Long.parseLong(id));
+    public Payment getPaymentMethod(@PathVariable("id") String id) {
+        return paymentService.getOne(Long.parseLong(id));
     }
 
     @PostMapping()
-    public Shipper addShipper(@RequestBody Shipper shipper) {
-        return shipperService.save(shipper);
+    public Payment addPaymentMethod(@RequestBody Payment paymentMethod) {
+        return paymentService.save(paymentMethod);
     }
 
     @PutMapping("/{id}")
-    public Shipper updateShipper(@RequestBody Shipper shipper) {
-        return shipperService.update(shipper);
+    public Payment updatePaymentMethod(@RequestBody Payment paymentMethod) {
+        return paymentService.update(paymentMethod);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteShipper(@PathVariable("id") String id) {
-        shipperService.delete(Long.parseLong(id));
+    public void deletePaymentMethod(@PathVariable("id") String id) {
+        paymentService.delete(Long.parseLong(id));
     }
 }

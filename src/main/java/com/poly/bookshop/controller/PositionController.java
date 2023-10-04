@@ -1,4 +1,4 @@
-package com.poly.bookshop.rest;
+package com.poly.bookshop.controller;
 
 import com.poly.bookshop.entity.Position;
 import com.poly.bookshop.service.PositionService;
@@ -19,16 +19,15 @@ import java.util.List;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/admin/position")
-public class PositionRestController {
+@RequestMapping("/api/position")
+public class PositionController {
 
     @Autowired
     private PositionService positionService;
 
     @GetMapping()
     public ResponseEntity<List<Position>> getPositions() {
-        List<Position> positionList = positionService.getAll();
-        return new ResponseEntity<>(positionList, HttpStatus.OK);
+        return new ResponseEntity<>(positionService.getAll(), HttpStatus.OK);
     }
 
 

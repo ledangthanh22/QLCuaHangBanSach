@@ -1,6 +1,8 @@
-package com.poly.bookshop.rest;
-import com.poly.bookshop.entity.OrderDetail;
-import com.poly.bookshop.service.OrderDetailService;
+package com.poly.bookshop.controller;
+
+
+import com.poly.bookshop.entity.Order;
+import com.poly.bookshop.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,14 +15,15 @@ import java.util.List;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/admin/order-detail")
-public class OrderDetailController {
+@RequestMapping("/api/order")
+public class OrderController {
 
     @Autowired
-    private OrderDetailService orderDetailService;
+    private OrderService orderService;
+
 
     @GetMapping()
-    public ResponseEntity<List<OrderDetail>> getOrderDetails(){
-        return new ResponseEntity<>(orderDetailService.getAll(), HttpStatus.OK);
+    public ResponseEntity<List<Order>> getOrders(){
+        return new ResponseEntity<>(orderService.getAll(), HttpStatus.OK);
     }
 }

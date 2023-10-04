@@ -1,8 +1,8 @@
-package com.poly.bookshop.rest;
+package com.poly.bookshop.controller;
 
 
-import com.poly.bookshop.entity.Category;
-import com.poly.bookshop.service.CategoryService;
+import com.poly.bookshop.entity.Shipper;
+import com.poly.bookshop.service.ShipperService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,34 +18,34 @@ import java.util.List;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/admin/category")
-public class CategoryRestController {
+@RequestMapping("/api/shipper")
+public class ShipperController {
 
     @Autowired
-    private CategoryService categoryService;
+    private ShipperService shipperService;
 
     @GetMapping()
-    public List<Category> getBookCategories() {
-        return categoryService.getAll();
+    public List<Shipper> getShippers() {
+        return shipperService.getAll();
     }
 
     @GetMapping("/{id}")
-    public Category getBookCategory(@PathVariable("id") String id) {
-        return categoryService.getOne(Long.parseLong(id));
+    public Shipper getShipper(@PathVariable("id") String id) {
+        return shipperService.getOne(Long.parseLong(id));
     }
 
     @PostMapping()
-    public Category addBookCategory(@RequestBody Category bookCategory) {
-        return categoryService.save(bookCategory);
+    public Shipper addShipper(@RequestBody Shipper shipper) {
+        return shipperService.save(shipper);
     }
 
     @PutMapping("/{id}")
-    public Category updateBookCategory(@RequestBody Category bookCategory) {
-        return categoryService.update(bookCategory);
+    public Shipper updateShipper(@RequestBody Shipper shipper) {
+        return shipperService.update(shipper);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteBookCategory(@PathVariable("id") String id) {
-        categoryService.delete(Long.parseLong(id));
+    public void deleteShipper(@PathVariable("id") String id) {
+        shipperService.delete(Long.parseLong(id));
     }
 }
